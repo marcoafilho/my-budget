@@ -1,0 +1,14 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: my_budget_development
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: my_budget_test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: my_budget_production
