@@ -77,4 +77,7 @@ MyBudget::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Default mailer actions
+   config.action_mailer.default_url_options = { host: 'my-budget.herokuapp.com' }
 end
