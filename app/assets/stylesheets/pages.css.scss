@@ -1,10 +1,19 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'media';
 
 #features {
   margin-right: 20px;
   min-height: 400px; // Sets a sample min-height for the carousel
+
+  a.carousel-control {
+    border-radius: 4px;
+  }
+
+  @media screen and (max-width: $small-device-breakpoint) {
+    margin-right: 0;
+  }
 }
 
 #user_handler {
