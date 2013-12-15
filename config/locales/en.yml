@@ -32,7 +32,7 @@ en:
       successful: <b>Welcome!</b> You're now part of MyBudget!
   sessions:
     create:
-      unsuccessful: Incorrect email and password combination.
+      unsuccessful: Invalid email and password combination.
     destroy:
       successful: You were signed out successfully.
   temp:
