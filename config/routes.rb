@@ -1,4 +1,10 @@
 MyBudget::Application.routes.draw do
+  post 'login', to: 'sessions#create', as: 'login'
+  delete 'logout', to: 'sessions#destroy', as: 'logout'
+
+  resource :dashboard, only: :show
+  resources :registrations
+
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

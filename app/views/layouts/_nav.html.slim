@@ -1,0 +1,14 @@
+nav.navbar.navbar-inverse.navbar-static-top role="navigation"
+  .container
+    .navbar-header
+      button.navbar-toggle type="button" data-toggle="collapse" data-target="#main_navigation"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to "MyBudget", root_path, class: "navbar-brand"
+    #main_navigation.navbar-collapse.collapse
+      - if current_user
+        ul.nav.navbar-nav.navbar-right
+          li
+            = link_to t('layouts._nav.sign_out'), logout_path, method: :delete

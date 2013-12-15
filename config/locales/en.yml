@@ -20,4 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  layouts:
+    _nav:
+      sign_out: Sign out
+  pages:
+    home:
+      sign_in: Log in
+      sign_up: Sign up
+  registrations:
+    create:
+      successful: <b>Welcome!</b> You're now part of MyBudget!
+  sessions:
+    create:
+      unsuccessful: Incorrect email and password combination.
+    destroy:
+      successful: You were signed out successfully.
+  temp:
+    slideshow: There will be a slideshow here.

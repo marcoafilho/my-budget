@@ -1,36 +1,46 @@
-/ h2 Sign in
-/ = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-/   div
-/     = f.label :email
-/     br
-/     = f.email_field :email, autofocus: true
-/   div
-/     = f.label :password
-/     br
-/     = f.password_field :password
-/   - if devise_mapping.rememberable?
-/     div
-/       = f.check_box :remember_me
-/       = f.label :remember_me
-/   div
-/     = f.submit "Sign in"
-/ = link_to "Forgot your password?", new_password_path(resource_name)
-/ br
-
-/ h2 Sign up
-/ = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-/   = devise_error_messages!
-/   div
-/     = f.label :email
-/     br
-/     = f.email_field :email
-/   div
-/     = f.label :password
-/     br
-/     = f.password_field :password
-/   div
-/     = f.label :password_confirmation
-/     br
-/     = f.password_field :password_confirmation
-/   div
-/     = f.submit "Sign up"
+.row
+  .col-sm-12
+    .col-sm-8
+      .row
+        #features.carousel.slide data-ride="carousel"
+          ol.carousel-indicators
+            li.active data-target="#features" data-slide-to="0"
+          .carousel-inner
+            .item.active
+              h2= t('temp.slideshow')
+            .item
+              h2= t('temp.slideshow')
+          a.left.carousel-control href="#features" data-slide="prev"
+            span.glyphicon.glyphicon-chevron-left
+          a.right.carousel-control href="#features" data-slide="next"
+            span.glyphicon.glyphicon-chevron-right
+    #user_handler.col-sm-4
+      .row
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title= t('.sign_in')
+          .panel-body
+            = form_tag login_path, role: "form"
+              .form-group
+                = email_field_tag :email, params[:email], autofocus: !controller_name.eql?('registrations'), placeholder: User.human_attribute_name(:email), class: "form-control"
+              .form-group
+                = password_field_tag :password, nil, placeholder: User.human_attribute_name(:password), class: "form-control"
+              .form-group
+                = submit_tag t('.sign_in'), class: "btn btn-primary"
+      .row
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title= t('.sign_up')
+          .panel-body
+            = form_for(@user, url: registrations_path, html: { role: "form" }) do |f|
+              .form-group
+                = f.text_field :name, autofocus: first_field_with_errors(:name), placeholder: User.human_attribute_name(:name), class: "form-control"
+              .form-group
+                = f.email_field :email, autofocus: first_field_with_errors(:email), placeholder: User.human_attribute_name(:email), class: "form-control"
+              .form-group
+                = f.password_field :password, autofocus: first_field_with_errors(:password), placeholder: User.human_attribute_name(:password), class: "form-control"
+              .form-group
+                = f.submit t('.sign_up'), class: "btn btn-success"
+              - if @user.errors.any?
+                .alert.alert-danger
+                  = @user.errors.full_messages.first

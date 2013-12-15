@@ -1,6 +1,6 @@
-class PagesController < Devise::RegistrationsController
+class PagesController < ApplicationController
   def home
-    build_resource({})
-    respond_with self.resource
+    redirect_to dashboard_path if current_user
+    @user = User.new
   end
 end
