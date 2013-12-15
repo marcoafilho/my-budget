@@ -9,6 +9,12 @@ Bundler.require(:default, Rails.env)
 module MyBudget
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/lib)
+
+    config.assets.paths << Rails.root.join("vendor", "assets", "fonts")
+
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
+      "<span class=\"field-with-errors\">#{html_tag}</span>".html_safe 
+    }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

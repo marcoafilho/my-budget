@@ -1,0 +1,10 @@
+.alert {
+  background-image: none;
+  padding: 8px 10px;
+}
+
+.alert-dismissable {
+  .close {
+    right: 0;
+  }
+}
