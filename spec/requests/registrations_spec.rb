@@ -18,7 +18,7 @@ describe "Registrations" do
 
       it "should redirect to Dashboard" do
         click_button submit
-        expect(page).to have_content("Dashboard")
+        current_path.should == dashboard_path
       end
 
       it "should create a user" do
@@ -35,10 +35,12 @@ describe "Registrations" do
 
       it "should redirect root path" do
         click_button submit
-        expect(page).to have_content("Name can't be blank")
+        current_path.should == '/registrations'
       end
 
       it "should display first error only" do
+        click_button submit
+        expect(page).to have_content("Name can't be blank")
         expect(page).to_not have_content("Email can't be blank")
       end
 
