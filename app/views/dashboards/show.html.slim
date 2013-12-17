@@ -1,1 +1,14 @@
 h2 Dashboard
+.col-sm-3
+  ul class="nav nav-tabs"
+    li class="active"
+      a href="#accounts" data-toggle="tab"
+        span.fa.fa-usd title="Accounts"
+  .tab-content
+    #accounts.tab-pane.fade.in.active
+      - @accounts.any?
+        ul
+          - @accounts.each do |account|
+            li
+              = account.name
+              = account.currency

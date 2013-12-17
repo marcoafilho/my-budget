@@ -2,6 +2,7 @@ MyBudget::Application.routes.draw do
   post 'login', to: 'sessions#create', as: 'login'
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
+  resources :accounts
   resource :dashboard, only: :show
   resources :registrations
 

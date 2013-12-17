@@ -21,7 +21,10 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Template engine for ruby
-gem 'slim-rails'
+gem 'slim-rails', '2.0.4'
+
+# Font awesome icons
+gem 'font-awesome-sass', '4.0.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
