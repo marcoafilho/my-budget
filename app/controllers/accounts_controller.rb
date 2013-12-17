@@ -41,7 +41,7 @@ class AccountsController < ApplicationController
     @account = current_user.accounts.find(params[:id])
 
     if @account.update(account_params)
-
+      redirect_to accounts_path, notice: "Successfully updated"
     else
       respond_with @account
     end
@@ -50,6 +50,8 @@ class AccountsController < ApplicationController
   def destroy
     account = current_user.accounts.find(params[:id])
     account.destroy
+
+    redirect_to accounts_path
   end
 
   private

@@ -1,0 +1,10 @@
+.col-sm-12
+  .page-header
+    h1= @account.name
+  p 
+    b Type: 
+    = @account.kind
+  p 
+    b Currency: 
+    = @account.currency
+  = link_to "Back", accounts_path

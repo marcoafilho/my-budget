@@ -10,7 +10,6 @@
  *
  *= require bootstrap/bootstrap
  *= require bootstrap/bootstrap-theme
- *= require bootstrap-override
  *= require font-awesome
  *= require_self
  *= require_tree .

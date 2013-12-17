@@ -1,3 +1,7 @@
 .col-sm-12
-  h1= "Edit account: #{@account.name}"
-= render "form", account: @account
+  .page-header
+    h1
+      = "Edit account " 
+      small= @account.name
+.col-sm-6
+  = render "form", account: @account

@@ -3,12 +3,13 @@ h2 Dashboard
   ul class="nav nav-tabs"
     li class="active"
       a href="#accounts" data-toggle="tab"
-        span.fa.fa-usd title="Accounts"
+        span.fa.fa-money title="Accounts"
   .tab-content
     #accounts.tab-pane.fade.in.active
       - @accounts.any?
-        ul
+        ul.list-group
           - @accounts.each do |account|
-            li
+            li.list-group-item
               = account.name
-              = account.currency
+              span.badge
+                = account.currency

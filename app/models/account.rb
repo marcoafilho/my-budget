@@ -1,7 +1,8 @@
 class Account < ActiveRecord::Base
   belongs_to :user
 
-  validate :name, presence: true
-  validate :kind, presence: true
-  validate :currency, presence: true
+  validates :user, presence: true
+  validates :name, presence: true
+  validates :kind, presence: true
+  validates :currency, presence: true
 end

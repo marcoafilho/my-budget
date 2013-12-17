@@ -1,18 +1,22 @@
-.row
-  .col-sm-12
-    .row
-      .col-sm-6.col-sm-offset-3
-        = form_for account, html: { role: "form" } do |f|
-          .form-group
-            = f.label :name
-            = f.text_field :name, class: "form-control"
-          .form-group
-            = f.label :kind
-            = f.text_field :kind, class: "form-control"
-          .form-group
-            = f.label :currency
-            = f.text_field :currency, class: "form-control"
-          .form-group
-            = f.submit class: "btn btn-primary"
-            = link_to "Back", :back
-        
+= form_for account, html: { role: "form" } do |f|
+  - if account.errors.any?
+    .panel.panel-danger
+      .panel-heading
+        h3.panel-title There were some errors when trying to save your account
+      .panel-body
+        ul
+          - account.errors.full_messages.each do |error|
+            li= error
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :kind
+    = f.text_field :kind, class: "form-control"
+  .form-group
+    = f.label :currency
+    = f.text_field :currency, class: "form-control"
+  .form-group
+    = f.submit class: "btn btn-primary"
+    = link_to "Back", accounts_path
