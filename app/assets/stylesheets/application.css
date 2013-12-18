@@ -10,6 +10,8 @@
  *
  *= require bootstrap/bootstrap
  *= require bootstrap/bootstrap-theme
+ *= require chosen/chosen
+ *= require chosen/chosen-bootstrap
  *= require font-awesome
  *= require_self
  *= require_tree .

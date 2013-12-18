@@ -2,9 +2,11 @@
   .page-header
     h1= @account.name
   p 
-    b Type: 
+    b Kind: 
     = @account.kind
   p 
     b Currency: 
-    = @account.currency
+    = @account.currency.name_with_code
+  = link_to "Edit", edit_account_path(@account), class: "btn btn-default"
+  = link_to "Remove", account_path(@account), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }
   = link_to "Back", accounts_path
