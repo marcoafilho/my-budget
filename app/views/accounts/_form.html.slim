@@ -1,0 +1,21 @@
+= form_for account, html: { role: "form" } do |f|
+  - if account.errors.any?
+    .panel.panel-danger
+      .panel-heading
+        h3.panel-title= t('common.form.errors')
+      .panel-body
+        ul
+          - account.errors.full_messages.each do |error|
+            li= error
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :kind
+    = f.select :kind, Account::KINDS.map { |kind| [kind, kind] }, {}, class: "form-control chosen-select"
+  .form-group
+    = f.label :currency_id
+    = f.collection_select :currency_id, Currency.all, :id, :name_with_code, {}, class: "form-control chosen-select"
+  .form-group
+    = f.submit class: "btn btn-primary"
+    = link_to "Back", accounts_path

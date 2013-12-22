@@ -1,0 +1,21 @@
+.col-sm-12
+  .page-header
+    h1= t('.title')
+  - if @accounts.any?
+    table.table
+      tr
+        th= Account.human_attribute_name(:name)
+        th= Account.human_attribute_name(:kind)
+        th= Account.human_attribute_name(:currency)
+        th= t('common.actions.heading')
+      - @accounts.each do |account|
+        tr
+          td= account.name
+          td= account.kind
+          td= account.currency.name_with_code
+          td
+            .btn.btn-group-xs.btn-group
+              = link_to t('common.actions.show'), account_path(account), class: "btn btn-default"
+              = link_to t('common.actions.edit'), edit_account_path(account), class: "btn btn-default"
+              = link_to t('common.actions.remove'), account_path(account), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }
+  = link_to "New account", new_account_path, class: "btn btn-primary"

@@ -9,6 +9,15 @@ nav.navbar.navbar-inverse.navbar-static-top role="navigation"
       = link_to "MyBudget", root_path, class: "navbar-brand"
     #main_navigation.navbar-collapse.collapse
       - if current_user
+        ul.nav.navbar-nav
+          li class="#{active_controller("dashboards")}"
+            = link_to dashboard_path do
+              span.fa.fa-dashboard
+              = " Dashboard"
+          li class="#{active_controller("accounts")}"
+            = link_to accounts_path do
+              span.fa.fa-money
+              = " Accounts"
         ul.nav.navbar-nav.navbar-right
           li
             = link_to t('layouts._nav.sign_out'), logout_path, method: :delete
