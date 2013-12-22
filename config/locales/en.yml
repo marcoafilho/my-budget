@@ -11,6 +11,7 @@ en:
     update:
       successful: Account successfully updated.
     index:
+      new: New transaction
       title: Accounts
   common:
     actions:
