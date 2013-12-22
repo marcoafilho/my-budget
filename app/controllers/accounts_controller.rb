@@ -25,7 +25,7 @@ class AccountsController < ApplicationController
     @account = current_user.accounts.new(account_params)
 
     if @account.save
-      redirect_to accounts_path, notice: "Successfully created"
+      redirect_to accounts_path, notice: I18n.t("accounts.create.successful")
     else
       respond_with @account
     end
@@ -41,7 +41,7 @@ class AccountsController < ApplicationController
     @account = current_user.accounts.find(params[:id])
 
     if @account.update(account_params)
-      redirect_to accounts_path, notice: "Successfully updated"
+      redirect_to accounts_path, notice: I18n.t("accounts.update.successful")
     else
       respond_with @account
     end
@@ -51,7 +51,7 @@ class AccountsController < ApplicationController
     account = current_user.accounts.find(params[:id])
     account.destroy
 
-    redirect_to accounts_path
+    redirect_to accounts_path, notice: I18n.t("accounts.destroy.successful")
   end
 
   private

@@ -1,7 +1,5 @@
 .col-sm-12
   .page-header
-    h1
-      = "Edit account " 
-      small= @account.name
+    h1= t('.title', name: @account.name).html_safe
 .col-sm-6
   = render "form", account: @account
