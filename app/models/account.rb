@@ -1,11 +1,5 @@
 class Account < ActiveRecord::Base
-  KINDS = [
-    "Cash",
-    "Credit Card",
-    "Investment",
-    "Loan",
-    "Savings"
-  ]
+  KINDS = %w(Cash Checking Credit\ Card CD Investment Loan Savings Other)
 
   belongs_to :user
   belongs_to :currency
