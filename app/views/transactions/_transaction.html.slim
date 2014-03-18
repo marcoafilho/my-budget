@@ -1,0 +1,14 @@
+tr
+  td= transaction.description
+  - unless format == :account
+    td= link_to transaction.account.name, account_path(transaction.account)
+  td
+    span class="#{transaction.class.name.downcase}"
+      = number_to_currency transaction.amount, precision: transaction.account.currency.minor_unit, unit: ""
+  td= transaction.due_at
+  - unless format == :simple
+    td
+      .btn.btn-group-xs.btn-group
+        = link_to t('common.actions.show'), transaction_path(transaction), class: "btn btn-default"
+        = link_to t('common.actions.edit'), edit_transaction_path(transaction), class: "btn btn-default"
+        = link_to t('common.actions.remove'), transaction_path(transaction), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }

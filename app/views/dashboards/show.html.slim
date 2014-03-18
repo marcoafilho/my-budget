@@ -8,10 +8,15 @@
         span.fa.fa-money title="Accounts"
   .tab-content
     #accounts.tab-pane.fade.in.active
-      - @accounts.any?
         ul.list-group
+          li.list-group-item
+            = link_to new_account_path do
+              i.fa.fa-plus
           - @accounts.each do |account|
             li.list-group-item
-              = account.name
+              = link_to account.name, account_path(account)
               span.badge
-                = account.currency.code
+                = "#{account.currency.code} #{number_to_currency account.net_worth, precision: account.currency.minor_unit, unit: ""}"
+.col-sm-9
+  - if @transactions.any?
+    = render "transactions/table", transactions: @transactions, format: :simple

@@ -1,0 +1,15 @@
+.col-sm-12
+  .page-header
+    h1= @transaction.description
+  p 
+    b= "#{Transaction.human_attribute_name(:account)}: "
+    = @transaction.account.name
+  p 
+    b= "#{Transaction.human_attribute_name(:type)}: "
+    = @transaction.type
+  p 
+    b= "#{Transaction.human_attribute_name(:amount)}: "
+    = @transaction.amount
+  = link_to t('common.actions.edit'), edit_transaction_path(@transaction), class: "btn btn-default"
+  = link_to t('common.actions.remove'), transaction_path(@transaction), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }
+  = link_to t('common.actions.back'), transactions_path

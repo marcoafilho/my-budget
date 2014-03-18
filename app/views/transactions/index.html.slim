@@ -1,0 +1,6 @@
+.col-sm-12
+  .page-header
+    h1= t('.title')
+  - if @transactions.any?
+    = render "table", transactions: @transactions, format: :full
+  = link_to t('.new'), new_transaction_path, class: "btn btn-primary"

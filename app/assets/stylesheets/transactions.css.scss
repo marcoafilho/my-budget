@@ -1,0 +1,24 @@
+// Place all the styles related to the transactions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "font-awesome/variables";
+
+.income {
+  &:before { 
+    font-family: "FontAwesome";
+    content: $fa-var-plus;
+    padding: 0 5px 0 0;
+  }
+  color: #3c763d;
+}
+
+.expense {
+  &:before { 
+    font-family: "FontAwesome";
+    content: $fa-var-minus; 
+    padding: 0 5px 0 0;
+  }
+
+  color: #a94442;
+}

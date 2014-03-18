@@ -11,7 +11,7 @@ en:
     update:
       successful: Account successfully updated.
     index:
-      new: New transaction
+      new: New account
       title: Accounts
   common:
     actions:
@@ -38,5 +38,19 @@ en:
       unsuccessful: Invalid email and password combination.
     destroy:
       successful: You were successfully signed out.
+  transactions:
+    create:
+      successful: Account successfully created.
+    destroy:
+      successful: Account successfully removed.
+    edit:
+      title: "Edit transaction <small>%{description}</small>"
+    index:
+      title: Transactions
+      new: New transaction
+    new:
+      title: New transaction
+    update:
+      successful: Transaction successfully updated.
   temp:
     slideshow: There will be a slideshow here.

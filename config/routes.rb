@@ -2,9 +2,11 @@ MyBudget::Application.routes.draw do
   post 'login', to: 'sessions#create', as: 'login'
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :accounts
   resource :dashboard, only: :show
+
+  resources :accounts
   resources :registrations
+  resources :transactions
 
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.

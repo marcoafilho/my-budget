@@ -1,0 +1,27 @@
+= form_for transaction, as: :transaction, url: (transaction.new_record? ? transactions_path : transaction_path(transaction)), html: { role: "form" } do |f|
+  - if transaction.errors.any?
+    .panel.panel-danger
+      .panel-heading
+        h3.panel-title= t('common.form.errors.heading')
+      .panel-body
+        ul
+          - transaction.errors.full_messages.each do |error|
+            li= error
+  .form-group
+    = f.label :description
+    = f.text_field :description, class: "form-control"
+  .form-group
+    = f.label :account
+    = f.collection_select :account_id, current_user.accounts.collect, :id, :name, {}, class: "form-control chosen-select"
+  .form-group
+    = f.label :type
+    = f.select :type, Transaction::TYPES.map { |type| [type, type] }, {}, class: "form-control chosen-select"
+  .form-group
+    = f.label :due_at
+    = f.date_field :due_at, class: "form-control"
+  .form-group
+    = f.label :amount
+    = f.number_field :amount, class: "form-control", step: "any"
+  .form-group
+    = f.submit class: "btn btn-primary"
+    = link_to "Back", transactions_path

@@ -10,3 +10,6 @@
   = link_to t('common.actions.edit'), edit_account_path(@account), class: "btn btn-default"
   = link_to t('common.actions.remove'), account_path(@account), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }
   = link_to t('common.actions.back'), accounts_path
+.col-sm-12
+  - if @account.transactions.any?
+    = render "transactions/table", transactions: @account.transactions, format: :account

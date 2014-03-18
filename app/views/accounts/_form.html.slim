@@ -2,7 +2,7 @@
   - if account.errors.any?
     .panel.panel-danger
       .panel-heading
-        h3.panel-title= t('common.form.errors')
+        h3.panel-title= t('common.form.errors.heading')
       .panel-body
         ul
           - account.errors.full_messages.each do |error|

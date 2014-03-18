@@ -18,4 +18,4 @@
               = link_to t('common.actions.show'), account_path(account), class: "btn btn-default"
               = link_to t('common.actions.edit'), edit_account_path(account), class: "btn btn-default"
               = link_to t('common.actions.remove'), account_path(account), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }
-  = link_to "New account", new_account_path, class: "btn btn-primary"
+  = link_to t('.new'), new_account_path, class: "btn btn-primary"

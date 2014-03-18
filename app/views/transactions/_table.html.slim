@@ -1,0 +1,11 @@
+table.table
+  tr
+    th= Transaction.human_attribute_name(:description)
+    - unless format == :account
+      th= Transaction.human_attribute_name(:account)
+    th= Transaction.human_attribute_name(:amount)
+    th= Transaction.human_attribute_name(:due_at)
+    - unless format == :simple
+      th= t('common.actions.heading')
+  - transactions.each do |transaction|
+    = render "transactions/transaction", transaction: transaction, format: format
